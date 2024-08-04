@@ -12,6 +12,9 @@ builder.Services.AddSwaggerGen();//Belgeler için gerekli ayarlarý yapýyor
 //Inmemory and EFCore entegrations
 builder.Services.AddDbContext<AppllicationDbContext>(Options => Options.UseInMemoryDatabase("ECommerceDb"));
 
+builder.Services.AddMediatR(x => x.RegisterServicesFromAssemblies(typeof(Program).Assembly));
+
+
 var app = builder.Build();
 
 //app.MapGet("/", () => "Hello World!");
